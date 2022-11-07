@@ -2,9 +2,11 @@ const router = require('express').Router();
 const {
     User,
     Post,
-    Comment
+    Comments
 } = require('../../models');
 
+
+//Get all comments 
 router.get("/", (req,res) => {
     Comments.findAll()
         .then((dbCommentData) => res.json(dbCommentData))
@@ -14,6 +16,7 @@ router.get("/", (req,res) => {
         });        
 });
 
+//Create a new comment 
 router.post('/', (req,res) => {
     if(req.session) {
         Comments.create({

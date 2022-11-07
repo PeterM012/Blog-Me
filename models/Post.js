@@ -13,7 +13,7 @@ Post.init({
         autoIncrement: true,
         allowNull: false
     },
-    title_head: {
+    title: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
