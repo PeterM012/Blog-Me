@@ -2,13 +2,13 @@ const router = require('express').Router();
 const {
     User,
     Post,
-    Comments
+    Comment
 } = require('../../models');
 
 
-//Get all comments 
+//Get all Comments 
 router.get("/", (req,res) => {
-    Comments.findAll()
+    Comment.findAll()
         .then((dbCommentData) => res.json(dbCommentData))
         .catch((err) => {
             console.log(err);
@@ -16,10 +16,10 @@ router.get("/", (req,res) => {
         });        
 });
 
-//Create a new comment 
+//Create a new Comment 
 router.post('/', (req,res) => {
     if(req.session) {
-        Comments.create({
+        Comment.create({
             comment_blog: req.body.comment_blog,
             post_id: req.body.post_id,
             user_id: req.session.user_id

@@ -2,7 +2,7 @@ const router = require('express').Router();
 const {
     User,
     Post,
-    Comments
+    Comment
 } = require('../../models');
 
 // Get all posts
@@ -17,7 +17,7 @@ router.get("/", (req, res) => {
                     attributes: ["userName"],
                 },
                 {
-                    model: Comments,
+                    model: Comment,
                     attributes: ["id", "comment_blog", "post_id", "user_id", "created_at"],
                     include: {
                         model: User,
@@ -42,14 +42,14 @@ router.get("/:id", (req, res) => {
             attributes: ["id", "content_box", "title", "created_at"],
             include: [{
                     model: User,
-                    attributes: ["username"],
+                    attributes: ["userName"],
                 },
                 {
-                    model: Comments,
+                    model: Comment,
                     attributes: ["id", "comment_blog", "post_id", "user_id", "created_at"],
                     include: {
                         model: User,
-                        attributes: ["username"],
+                        attributes: ["userName"],
                     },
                 },
             ],
