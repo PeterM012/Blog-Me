@@ -14,14 +14,14 @@ router.get("/", (req, res) => {
             ],
             include: [{
                     model: User,
-                    attributes: ["username"],
+                    attributes: ["userName"],
                 },
                 {
                     model: Comments,
                     attributes: ["id", "comment_blog", "post_id", "user_id", "created_at"],
                     include: {
                         model: User,
-                        attributes: ["username"],
+                        attributes: ["userName"],
                     },
                 },
             ],
