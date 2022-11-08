@@ -4,6 +4,7 @@ const {
     Post,
     Comment
 } = require('../../models');
+const withAuth = require('../../utils/auth');
 
 // Get all posts
 router.get("/", (req, res) => {
