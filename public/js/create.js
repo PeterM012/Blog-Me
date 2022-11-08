@@ -1,7 +1,9 @@
 async function createPostHandler(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    document.location.replace('/dashboard/new')
+  document.location.replace("/dashboard/new");
 }
 
-document.querySelector('#create-new-post').addEventListener('click', createPostHandler);
+document
+  .querySelector("#create-new-post")
+  .addEventListener("click", createPostHandler);
