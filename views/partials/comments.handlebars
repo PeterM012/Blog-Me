@@ -1,0 +1,14 @@
+2 lines (12 sloc)  268 Bytes
+
+<div class="comments">
+    {{#each this}}
+    <section class="comment">
+        <div class="meta">
+            {{user.userName}} on {{created_at}}
+        </div>
+        <div class="text">
+            {{comment_blog}}
+        </div>
+    </section>
+    {{/each}}
+</div>
