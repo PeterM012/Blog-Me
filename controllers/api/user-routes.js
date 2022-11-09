@@ -66,7 +66,7 @@ router.post('/', (req, res) => {
         .then(dbUserData => {
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
-                req.session.userName = dbUserData.userName;
+                req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
 
                 res.json(dbUserData);
@@ -81,7 +81,7 @@ router.post('/', (req, res) => {
 router.post('/login', (req, res) => {
     User.findOne({
             where: {
-                username: req.body.userName
+                username: req.body.username
             }
         })
         .then(dbUserData => {
@@ -94,7 +94,7 @@ router.post('/login', (req, res) => {
 
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.userName;
+                req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
 
                 res.json({
@@ -114,7 +114,7 @@ router.post('/login', (req, res) => {
 
             req.session.save(() => {
                 req.session.user_id = dbUserData.id;
-                req.session.username = dbUserData.userName;
+                req.session.username = dbUserData.username;
                 req.session.loggedIn = true;
 
                 res.json({

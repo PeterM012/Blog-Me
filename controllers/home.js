@@ -16,7 +16,7 @@ router.get('/', (req, res) => {
             ],
             include: [{
                     model: Comment,
-                    attributes: ['id', 'content_box', 'post_id', 'user_id', 'created_at'],
+                    attributes: ['id', 'comment_blog', 'post_id', 'user_id', 'created_at'],
                     include: {
                         model: User,
                         attributes: ['userName']
@@ -101,19 +101,18 @@ router.get('/login', (req, res) => {
     res.render('login');
 });
 
-router.get('/signup', (req, res) => {
+router.get('/users/signup', (req, res) => {
     if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
 
-    res.render('signup');
+    res.render('newsignin');
 });
 
 
 router.get('*', (req, res) => {
     res.status(404).send("Unable to Proceed");
-    // res.redirect('/');
 })
 
 
